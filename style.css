@@ -91,17 +91,23 @@ th{color:var(--muted);font-weight:600}
 .topbar nav a.get{background:var(--text);color:var(--bg);font-weight:700;margin-left:6px}
 .topbar nav a.get:hover{background:var(--text);opacity:.88}
 
-/* Download panel: App Store badge + QR code for desktop visitors (phones get the badge + Smart App Banner) */
-.getpanel{display:inline-flex;align-items:center;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:12px 22px 12px 14px;box-shadow:0 10px 30px -18px rgba(16,19,23,.35)}
-.getpanel .appstore img{height:52px}
-.getpanel .or{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
+/* Download panel: App Store badge + QR code. Shown on every device; the panel stacks when its column is narrow
+   (phones, iPad portrait, narrow desktop windows) using a container query, so it never overflows. */
+.cta{container-type:inline-size;width:100%}
+.getpanel{display:inline-flex;align-items:center;gap:14px;max-width:100%;box-sizing:border-box;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:12px 22px 12px 14px;box-shadow:0 10px 30px -18px rgba(16,19,23,.35)}
+.getpanel .appstore{flex-shrink:0}
+.getpanel .appstore img{height:48px;width:auto}
+.getpanel .or{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0}
 .getpanel .or::before,.getpanel .or::after{content:"";width:1px;height:22px;background:var(--line)}
-.scan{display:flex;align-items:center;gap:14px}
-.scan img{width:96px;height:96px;border-radius:14px;display:block;background:#fff;padding:6px;border:1px solid var(--line);box-sizing:content-box}
-.scan span{display:flex;flex-direction:column;gap:2px;font-size:14px;color:var(--muted);line-height:1.35;text-align:left;max-width:160px}
+.scan{display:flex;align-items:center;gap:14px;min-width:0}
+.scan img{width:96px;height:96px;border-radius:14px;display:block;background:#fff;padding:6px;border:1px solid var(--line);box-sizing:content-box;flex-shrink:0}
+.scan span{display:flex;flex-direction:column;gap:2px;font-size:14px;color:var(--muted);line-height:1.35;text-align:left;max-width:150px}
 .scan strong{color:var(--text);font-size:16px}
-@media (max-width:820px){
-  .getpanel{background:none;border:0;box-shadow:none;padding:0}
-  .getpanel .or,.scan{display:none}
-  .getpanel .appstore img{height:60px}
+@container (max-width:500px){
+  .getpanel{display:flex;flex-direction:column;align-items:stretch;width:100%;max-width:420px;gap:14px;padding:18px}
+  .getpanel .appstore{align-self:center}
+  .getpanel .appstore img{height:56px}
+  .getpanel .or{flex-direction:row;gap:12px}
+  .getpanel .or::before,.getpanel .or::after{width:auto;height:1px;flex:1}
+  .scan{justify-content:center}
 }
