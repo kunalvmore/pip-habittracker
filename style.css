@@ -83,3 +83,25 @@ th{color:var(--muted);font-weight:600}
 }
 @media (max-width:520px){.grid{grid-template-columns:1fr}.stage .pipcard{display:none}}
 .widgetshot img,.stage .pipcard img{height:auto}
+
+/* App Store badge + "Get Pip" button (added at launch) */
+.appstore{display:inline-block;line-height:0}
+.appstore img{height:60px;width:auto}
+.final .appstore img{height:64px}
+.topbar nav a.get{background:var(--text);color:var(--bg);font-weight:700;margin-left:6px}
+.topbar nav a.get:hover{background:var(--text);opacity:.88}
+
+/* Download panel: App Store badge + QR code for desktop visitors (phones get the badge + Smart App Banner) */
+.getpanel{display:inline-flex;align-items:center;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:12px 22px 12px 14px;box-shadow:0 10px 30px -18px rgba(16,19,23,.35)}
+.getpanel .appstore img{height:52px}
+.getpanel .or{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
+.getpanel .or::before,.getpanel .or::after{content:"";width:1px;height:22px;background:var(--line)}
+.scan{display:flex;align-items:center;gap:14px}
+.scan img{width:96px;height:96px;border-radius:14px;display:block;background:#fff;padding:6px;border:1px solid var(--line);box-sizing:content-box}
+.scan span{display:flex;flex-direction:column;gap:2px;font-size:14px;color:var(--muted);line-height:1.35;text-align:left;max-width:160px}
+.scan strong{color:var(--text);font-size:16px}
+@media (max-width:820px){
+  .getpanel{background:none;border:0;box-shadow:none;padding:0}
+  .getpanel .or,.scan{display:none}
+  .getpanel .appstore img{height:60px}
+}
