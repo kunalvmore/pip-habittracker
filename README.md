@@ -7,6 +7,7 @@ Static site for Pip – Habit Tracker, hosted free on GitHub Pages. No build ste
 | Home (landing) | `index.html` | **Marketing URL** in App Store Connect (optional), links on social media |
 | Support | `support/index.html` | **Support URL** in App Store Connect, `Links.support` (Settings → Help & support) |
 | Privacy Policy | `privacy/index.html` | **Privacy Policy URL** in App Store Connect, `Links.privacy` |
+| Terms of Use | `terms/index.html` | `Links.terms` (Pro sheet, onboarding offer, Settings) and the App Store description. Adds Pip Pro details to Apple's standard EULA, which App Store Connect keeps. |
 
 Shared styles: `style.css` (light + dark, same tokens as the app). Images: `images/` (screenshots rendered from the
 design boards; replace with real device screenshots before launch).
@@ -25,6 +26,6 @@ design boards; replace with real device screenshots before launch).
 ## Hosting on GitHub Pages
 1. This folder (`~/Documents/pip-site`) is the repo `kunalvmore/pip-habittracker`; it is the only copy of the site.
 2. Repo → Settings → Pages → Deploy from a branch → `main` / root.
-3. URLs: `https://kunalvmore.github.io/pip-habittracker/` (home), `…/support/`, `…/privacy/`.
+3. URLs: `https://kunalvmore.github.io/pip-habittracker/` (home), `…/support/`, `…/privacy/`, `…/terms/`.
 
 To publish changes: `cd ~/Documents/pip-site && git add . && git commit -m "Update site" && git push`
